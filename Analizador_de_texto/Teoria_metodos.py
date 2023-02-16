@@ -73,3 +73,37 @@ print("peces" in poema)
 
 print("peces" not in poema)
 print(len(poema))
+
+
+#Listas
+lista = ['a','b','c']
+lenLista = len(lista)
+print(lenLista)
+
+
+
+#Diccionarios
+
+diccionario = {
+    'c1': 'valor1',
+    'c2': 'valor1'
+}
+resulta=diccionario['c1']
+
+print(diccionario)
+print(resulta)
+
+
+cliente ={
+    'nombre':'juan',
+    'apellido':'Fuentes',
+    'peso': 24,
+    'talla': 1.76
+}
+
+consulta = cliente['apellido']
+print(consulta)
+
+#Tuplas ocupan menos espacio que las listas
+tuple = (1,2,3,4)
+print(type(tuple))
