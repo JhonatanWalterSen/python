@@ -105,5 +105,22 @@ consulta = cliente['apellido']
 print(consulta)
 
 #Tuplas ocupan menos espacio que las listas
-tuple = (1,2,3,4)
+tuple = (1,2,(10,20),4)
 print(type(tuple))
+
+print(tuple[0])
+print(tuple[-2]) # derecha a izquierda
+#son inmutables
+cambio_tuple = list(tuple)
+print(type(cambio_tuple))
+
+
+t= (1,2,3,1)
+
+#Cuantas veces aparece el 1
+print(len(t.count(1)))
+
+print(t.index(1))
+
+x,y,z= t
+print(x,y,z)
