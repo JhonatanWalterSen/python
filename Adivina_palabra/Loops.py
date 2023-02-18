@@ -28,3 +28,20 @@ for letr in palabras:
     print(letr)
 
 print('####### 5 #######')
+
+dic = {
+    'clave':'a',
+    "clave2":'b',
+    "clave3":'c'
+}
+
+for item in dic:
+    print(item)
+
+#completos
+for item in dic.items():
+    print(item)
+
+#valores
+for item in dic.values():
+    print(item)
