@@ -1,6 +1,6 @@
 from random import randint
 
-nombre = input('¿Cual es tu nombre')
+nombre = input('¿Cual es tu nombre?')
 num_secreto = randint(1,101)
 intentos = 0
 
@@ -18,5 +18,5 @@ while intentos < 8:
         print(f"GANASTE {nombre}! Has adivinado en {intentos} intentos ")
         break
 
-#if estimado != num_secreto:
-#    print(f'el numero secreto era {num_secreto}')
+if estimado != num_secreto:
+    print(f'el numero secreto era {num_secreto}')
