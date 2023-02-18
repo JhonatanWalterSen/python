@@ -16,5 +16,12 @@ else:
 
 #Anidando condiciones
 edad = 16
-
-#if edad < 18:
+cali = 9
+if edad < 18:
+    print('Eres menor de edad')
+    if cali >= 7:
+        print('Aprobado')
+    else:
+        print('No Aprobado')
+else:
+    print("Eres adulto")
