@@ -1,1 +1,2 @@
-GAAAA
+linea1
+linea2
