@@ -32,7 +32,7 @@ print(elemento)
 os.rmdir('C:\\Users\\Ariza\\Desktop\\Otra')
 
 #pathLib
-carpeta = Path('C:\\Users\\Ariza\\Desktop')
+carpeta = Path('C:/Users/Ariza/Desktop')
 archivo = carpeta / 'Otro_archivo.txt'
 
 
