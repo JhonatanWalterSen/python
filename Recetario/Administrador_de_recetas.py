@@ -48,8 +48,6 @@ def mostrar_categorias(ruta):
         contador +=1
     return lista_categorias
 
-
-
 def elegir_categoria(lista):
     eleccion_correcto = 'x'
     while not eleccion_correcto.isnumeric() or int(eleccion_correcto) not in range(1,len(lista)):
@@ -57,15 +55,39 @@ def elegir_categoria(lista):
 
     return lista[int(eleccion_correcto)-1]
 
+def mostrar_recetas(ruta):
+    print("Recetas:")
+    ruta_recetas = Path(ruta)
+    lista_recetas=[]
+    contador = 1
+    for receta in ruta_recetas.glob('*.txt'):
+        receta_str = str(receta.name)
+        print(f'[{contador}] - {receta_str}')
+        lista_recetas.append(receta)
+        contador +=1
+    return lista_recetas
+
+def elegir_recetas(lista):
+    eleccion_receta ='x'
+    while not eleccion_receta.isnumeric() or int(eleccion_receta) not in range(1,len(lista)+1):
+        eleccion_receta = input('Elige un número')
+    return lista[int(eleccion_receta-1)]
+
+
+def leer_receta(receta):
+    print(Path.read_text(receta))
+
+
+
 # mostrar menu de inicio
 menu = 0
 
 if menu ==1:
     mis_categorias=mostrar_categorias(mi_ruta)
     mi_categoria=elegir_categoria(mis_categorias)
-    # mostrar recetas
-    # elegir recetas
-    # leer recetas
+    mis_recetas=mostrar_recetas(mi_categoria)
+    mi_receta=elegir_recetas(mis_recetas)
+    leer_receta(mi_receta)
     # volver al inicio
     pass
 elif menu == 2:
@@ -81,8 +103,8 @@ elif menu == 3:
 elif menu ==4:
     mis_categorias=mostrar_categorias(mi_ruta)
     mi_categoria=elegir_categoria(mis_categorias)
-    # mostrar recetas
-    # elegir recetas
+    mis_recetas=mostrar_recetas(mi_categoria)
+    mi_receta=elegir_recetas(mis_recetas)
     # Eliminar recetas
     # volver al inicio
     pass
