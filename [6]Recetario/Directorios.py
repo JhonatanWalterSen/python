@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 ruta = os.getcwd()
-# D:\python\Recetario
+# D:\python\[6]Recetario
 
 ruta = os.chdir('C:\\Users\\Ariza\\Desktop')
 # None
@@ -20,11 +20,11 @@ print(archivo.read())
 
 ruta = 'D:\python\Recetario\\prueba.txt'
 elemento = os.path.dirname(ruta)
-#D:\python\Recetario
+#D:\python\[6]Recetario
 
 #ambos elementos en una tupla
 elemento = os.path.split(ruta)
-#('D:\\python\\Recetario', 'prueba.txt')
+#('D:\\python\\[6]Recetario', 'prueba.txt')
 print(elemento)
 
 # Eliminar carpeta
