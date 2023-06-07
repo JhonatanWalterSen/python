@@ -1,5 +1,7 @@
 import pygame
 import random
+import math
+
 # Inicializar PYgame
 pygame.init()
 
@@ -11,6 +13,9 @@ pygame.display.set_caption('Invasión Espacial (Los extraterrestres)')
 icono = pygame.image.load('extraterrestre.png')
 pygame.display.set_icon(icono)
 fondo = pygame.image.load('Fondo.jpg')
+
+# puntaje
+puntaje = 0
 
 # variables del Jugador
 img_jugador = pygame.image.load('pikachu.png')
@@ -46,7 +51,13 @@ def disparar_trueno(x, y):
     global bala_visible
     bala_visible = True
     pantalla.blit(img_trueno, (x + 16, y + 10))
-
+# Funcion detectar colisiones
+def hay_colision(x_1, y_1, x_2, y_2):
+    distancia = math.sqrt(math.pow(x_1 - x_2, 2) + math.pow(y_2 - y_1, 2))
+    if distancia < 27:
+        return True
+    else:
+        return False
 
 # Loop del juego
 acaba = True
@@ -71,7 +82,9 @@ while acaba:
                 posicion_x_cambio = 0.1
                 print('Flecha Derecha -> Presionada')
             if evento.key == pygame.K_SPACE:
-                disparar_trueno(posicion_x, trueno_y)
+                if not bala_visible:
+                    trueno_x = posicion_x
+                    disparar_trueno(trueno_x, trueno_y)
 
         # soltar flechas
         if evento.type == pygame.KEYUP:
@@ -99,9 +112,21 @@ while acaba:
         enemigo_y += enemigo_y_cambio
 
     # movimiento trueno
+    if trueno_y <= -64:
+        trueno_y = 500
+        bala_visible = False
+
     if bala_visible:
-        disparar_trueno(posicion_x, trueno_y)
+        disparar_trueno(trueno_x, trueno_y)
         trueno_y -= trueno_y_cambio
+
+    # colision
+    colision = hay_colision(enemigo_x, enemigo_y, trueno_x, trueno_y)
+    if colision:
+        trueno_y = 500
+        bala_visible = False
+        puntaje += 1
+        print(puntaje)
 
     jugador(posicion_x, posicion_y)
     enemigo(enemigo_x, enemigo_y)
